@@ -48,18 +48,21 @@ class action_plugin_imgpaste extends DokuWiki_Action_Plugin {
         // prepare file names
         $tempname = $this->storetemp($data);
         $filename = $this->getConf('filename');
+		
         $filename = str_replace(
                         array(
                              '@NS@',
                              '@ID@',
                              '@USER@',
-                             '@PAGE@'
+                             '@PAGE@',
+							 '@FILENAME@'
                         ),
                         array(
                              getNS($INPUT->post->str('id')),
                              $INPUT->post->str('id'),
                              $_SERVER['REMOTE_USER'],
-                             noNS($INPUT->post->str('id'))
+                             noNS($INPUT->post->str('id')),
+							 pathinfo($INPUT->post->str('FileName'), PATHINFO_FILENAME)
                         ),
                         $filename
                     );
@@ -79,7 +82,7 @@ class action_plugin_imgpaste extends DokuWiki_Action_Plugin {
                          'ext'  => $mimetypes[$type]
                     ),
                     $filename,
-                    false,
+                    $this->getConf('overwrite'),
                     $auth,
                     'copy'
         );

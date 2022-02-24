@@ -32,7 +32,8 @@ jQuery(function () {
                     data: {
                         call: 'plugin_imgpaste',
                         data: x.dataURL,
-                        id: JSINFO.id
+                        id: JSINFO.id,
+						 FileName: x.name
                     },
 
                     // insert syntax and close dialog
