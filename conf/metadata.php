@@ -7,5 +7,5 @@
 
 
 $meta['filename'] = array('string');
-$meta['overwrite'] = array('string');
+$meta['overwrite'] = array('onoff');
 

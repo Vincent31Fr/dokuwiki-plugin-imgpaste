@@ -6,4 +6,4 @@
  */
 
 $conf['filename']    = '@NS@:pasted:%Y%m%d-%H%M%S';
-$conf['overwrite']   = False;
+$conf['overwrite']   = 0;
